@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 /* Feb 9 2019
  * Laurent Lao
@@ -11,33 +12,35 @@
 
 int main() {
 
-    for (int counter = 1; counter < 100; counter++)
+    for (int counter = 1; counter <= 100; counter++)
     {
         // Check if multiples
         bool isMultipleOfThree = (counter % 3 == 0);
         bool isMultipleOfFive = (counter % 5 == 0);
 
-        // Print Fizz if only multiple of three
-        if (isMultipleOfThree && !isMultipleOfFive)
+        // If multiples of three and five print "FizzBuzz"
+        if (isMultipleOfThree && isMultipleOfFive)
         {
-            std::cout << "Fizz\n";
+            cout << "FizzBuzz\n";
+        }
+        // if multiples of three Print "Fizz"
+        else if (isMultipleOfThree)
+        {
+            cout << "Fizz\n";
         }
         // If multiples of five print "Buzz"
-        else if (!isMultipleOfThree && isMultipleOfFive)
+        else if (isMultipleOfFive)
         {
-            std::cout << "Buzz\n";
+            cout << "Buzz\n";
         }
-        // If multiples of three and five print "FizzBuzz"
-        else if (isMultipleOfThree && isMultipleOfFive)
-        {
-            std::cout << "FizzBuzz\n";
-        }
-        // If not a multiple of three nor five, print the number
+        // Otherwise, print the number itself
         else
         {
-            std::cout << counter << "\n";
+            cout << counter << "\n";
         }
     }
+
+    // End of Program
     return 0;
 
 }

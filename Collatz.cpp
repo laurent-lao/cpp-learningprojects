@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 /* Feb 9 2019
  * Laurent Lao
@@ -21,25 +22,25 @@ int main()
     {
         // Increment counter
         counter++;
-        std::cout << "Step " << counter << ": " << chosenNumber << " is ";
+        cout << "Step " << counter << ": " << chosenNumber << " is ";
         // When number is even
         if (chosenNumber % 2 == 0)
         {
             chosenNumber /= 2;
-            std::cout << "even. Divided by 2: " << chosenNumber;
+            cout << "even. Divided by 2: " << chosenNumber;
         }
         // When number is odd
         else
         {
             chosenNumber = chosenNumber * 3 + 1;
-            std::cout << "odd. Multiplied by 3 then adding 1: " << chosenNumber;
+            cout << "odd. Multiplied by 3 then adding 1: " << chosenNumber;
         }
         
         // Creating new line
-        std::cout << "\n";
+        cout << "\n";
     }
     
     // Print results
-std::cout << "\nIt took " << counter << " steps to make " << chosenNumber_start << " equal to 1 using the\nCollatz conjuncture>";
+    cout << "\nIt took " << counter << " steps to make " << chosenNumber_start << " equal to 1 using the\nCollatz conjuncture>";
     return 0;
 }
