@@ -4,7 +4,7 @@ using namespace std;
 /* Feb 9 2019
  * Laurent Lao
  * Learning C++ through https://github.com/karan/Projects
- * Ceasar Cipher
+ * Caesar Cipher
  * Implement a Caesar cipher, both encoding and decoding. The key is an integer from 1 to 25. This cipher rotates the
  * letters of the alphabet (A to Z). The encoding replaces each letter with the 1st to 25th next letter in the alphabet
  * (wrapping Z to A). So key 2 encrypts "HI" to "JK", but key 20 encrypts "HI" to "BC". This simple "monoalphabetic
@@ -16,7 +16,7 @@ using namespace std;
 int promptEncryptOrDecrypt();
 void run_encrypt(char []);
 void run_decrypt(char []);
-void ceasarWithKey(char [], int, bool);
+void caesarWithKey(char [], int, bool);
 
 // ** CONST declaration **
 const int MAX_CHAR_SIZE_INPUT = 256;
@@ -153,10 +153,10 @@ int promptForAKey()
 void run_encrypt(char stringInputted[])
 {
     // Debug
-    cout << "** Cesar Encryption **\n" << endl;
+    cout << "** Caesar Encryption **\n" << endl;
     
     // Get a key from user and encrypt the string
-    ceasarWithKey(stringInputted, promptForAKey(), true);
+    caesarWithKey(stringInputted, promptForAKey(), true);
     
     // Print the modified string
     cout << "The encrypted string is: " << stringInputted;
@@ -165,7 +165,7 @@ void run_encrypt(char stringInputted[])
 
 void run_decrypt(char stringInputted[])
 {
-    cout << "** Ceasar Decryption ** \n" << endl;
+    cout << "** Caesar Decryption ** \n" << endl;
     
     // Prompting user whether they know the key or they want to try all the keys
     switch (promptKnowsKey())
@@ -173,7 +173,7 @@ void run_decrypt(char stringInputted[])
         case 1:
             // User knows the key, decrypt and display
             cout << "You know the key.\n";
-            ceasarWithKey(stringInputted, promptForAKey(), false);
+            caesarWithKey(stringInputted, promptForAKey(), false);
             cout << "The decrypted string is: " << stringInputted;
             break;
         case 2:
@@ -192,8 +192,8 @@ void run_decrypt(char stringInputted[])
                     }
                 }
                 
-                // Pass the copied input to be decrypted into Ceasar with key
-                ceasarWithKey(decryptThis, key, false);
+                // Pass the copied input to be decrypted into Caesar with key
+                caesarWithKey(decryptThis, key, false);
                 
                 // Printing output
                 cout << "Decrypting with key\t" << key << ":\t" << decryptThis << endl;
@@ -203,7 +203,7 @@ void run_decrypt(char stringInputted[])
     }
 }
 
-void ceasarWithKey(char stringInputted[], int key, bool isEncryption)
+void caesarWithKey(char stringInputted[], int key, bool isEncryption)
 {
     // Modify key according to whether it is an encryption or decryption
     if (!isEncryption)
