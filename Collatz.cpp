@@ -9,11 +9,13 @@ using namespace std;
  * process: If n is even, divide it by 2. If n is odd, multiply it by 3 and add 1.
  */
 
+// ** Declaring functions **
+int promptForNumber();
+
 int main()
 {
-    // Todo: Program accepts user inputs
-    // Hard-coding a number
-    int chosenNumber = 27;
+    // Prompt for a number over 1
+    int chosenNumber = promptForNumber();
 
     // Do operations until chosenNumber = 1 and keep count
     int chosenNumber_start = chosenNumber;
@@ -41,6 +43,31 @@ int main()
     }
     
     // Print results
-    cout << "\nIt took " << counter << " steps to make " << chosenNumber_start << " equal to 1 using the\nCollatz conjuncture>";
+    cout << "\nIt took " << counter << " steps to make " << chosenNumber_start << " equal to 1 using the Collatz conjuncture";
     return 0;
+}
+
+// ** Function implementations **
+
+// Prompts for a number greater than 1, loop if necessary
+int promptForNumber()
+{
+    bool isCorrect = false;
+    do
+    {
+        int chosenNumber;
+        cout << "Enter a number greater than 1: ";
+        cin >> chosenNumber;
+        
+        if (chosenNumber <= 1)
+        {
+            cout << "Invalid number, try again.\n";
+        }
+        else
+        {
+            isCorrect = true;
+            return chosenNumber;
+        }
+    }
+    while (!isCorrect);
 }
